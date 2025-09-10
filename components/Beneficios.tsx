@@ -1,14 +1,5 @@
 import { Nata_Sans } from "next/font/google";
-import {
-  ShoppingCart,
-  FileText,
-  ChartBar,
-  MapPin,
-  Package,
-  Bell,
-  Fingerprint,
-  Plus
-} from "phosphor-react";
+import { ShoppingCart, FileText, ChartBar, MapPin, Package, Bell, Fingerprint, Plus } from "phosphor-react";
 
 const nataSans = Nata_Sans({ subsets: ["latin"] });
 
@@ -66,7 +57,6 @@ function Beneficios() {
           <div
             key={i}
             className="relative bg-white rounded-[2rem] flex flex-col justify-between min-h-[260px] p-7 transition"
-            // style={{ boxShadow: '0 2px 8px 0 rgba(60,60,60,0.06)' }}
           >
             <div className="flex flex-row items-start gap-3 mb-4">
               <div className="flex-shrink-0 mt-1">{b.icono}</div>
