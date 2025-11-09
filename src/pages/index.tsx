@@ -1,9 +1,10 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Nata_Sans } from "next/font/google";
-import Beneficios from "../../components/Beneficios";
-
-const nataSans = Nata_Sans({ subsets: ["latin"] });
+import Beneficios from "../components/app/Beneficios";
+import MainScreen from "../components/app/MainScreen";
+import Navbar from "../components/app/Navbar";
+import FAQ from "../components/app/FAQ";
+import AnimatedBeamDemo from "@/components/app/Beem";
+import Notifications from "@/components/app/Notifications";
 
 export default function Home() {
   return (
@@ -33,17 +34,12 @@ export default function Home() {
         <meta name="twitter:image" content="https://isyncerp.com/og-image.png" />
       </Head>
 
-      <main className="h-[75vh] flex flex-col gap-4 items-center justify-center">
-        <h1 className={`text-5xl font-bold ${nataSans.className} text-center`}>Gestiona pedidos, cobros y rutas
-          <span className="block">desde tu telefono</span>
-        </h1>
-
-        <p className={`text-lg md:text-xl ${nataSans.className} text-center`}>
-          Optimiza tu negocio en Honduras con nuestra app móvil
-        </p>
-      </main>
-
+      <Navbar />
+      <MainScreen />
+      {/* <AnimatedBeamDemo /> */}
+      <Notifications />
       <Beneficios />
+      <FAQ />
     </>
   );
 }
