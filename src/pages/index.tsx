@@ -5,6 +5,7 @@ import Navbar from "../components/app/Navbar";
 import FAQ from "../components/app/FAQ";
 import AnimatedBeamDemo from "@/components/app/Beem";
 import Notifications from "@/components/app/Notifications";
+import ScreenShots from "@/components/app/ScreenShots";
 
 export default function Home() {
   return (
@@ -37,7 +38,8 @@ export default function Home() {
       <Navbar />
       <MainScreen />
       {/* <AnimatedBeamDemo /> */}
-      <Notifications />
+      {/* <Notifications /> */}
+      {/* <ScreenShots /> */}
       <Beneficios />
       <FAQ />
     </>

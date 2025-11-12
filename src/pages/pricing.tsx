@@ -1,61 +1,47 @@
 import Navbar from "../components/app/Navbar"
 import { Nata_Sans } from 'next/font/google'
-import { useState } from 'react'
 
 const nataSans = Nata_Sans({ subsets: ['latin'] })
 
 function Pricing() {
-  const [isAnnual, setIsAnnual] = useState(false)
 
   const plans = [
     {
-      name: "Básico",
-      description: "Ideal para pequeñas empresas",
-      monthlyPrice: 29,
-      annualPrice: 290,
+      name: "Plan Mensual",
+      description: "Licencia por dispositivo - Facturación mensual",
+      price: 150,
+      period: "mes",
       features: [
-        "Hasta 5 usuarios",
-        "Gestión de pedidos básica",
-        "Reportes básicos",
-        "Soporte por email",
-        "1GB de almacenamiento"
+        "Licencia por dispositivo",
+        "Compatible con Android e iOS",
+        "Todas las funciones incluidas",
+        "Gestión completa de pedidos",
+        "Gestión de rutas optimizada",
+        "Reportes y análisis",
+        "Soporte técnico",
+        "Actualizaciones automáticas",
+        "Sin compromisos a largo plazo"
       ],
       popular: false
     },
     {
-      name: "Profesional",
-      description: "Para empresas en crecimiento",
-      monthlyPrice: 79,
-      annualPrice: 790,
+      name: "Plan Anual",
+      description: "Licencia por dispositivo - Facturación anual",
+      price: 500,
+      period: "año",
       features: [
-        "Hasta 25 usuarios",
-        "Gestión avanzada de pedidos",
+        "Licencia por dispositivo",
+        "Compatible con Android e iOS",
+        "Todas las funciones incluidas",
+        "Gestión completa de pedidos",
         "Gestión de rutas optimizada",
-        "Reportes avanzados",
+        "Reportes y análisis avanzados",
         "Soporte prioritario",
-        "10GB de almacenamiento",
-        "Integración con APIs",
-        "Dashboard personalizado"
+        "Actualizaciones automáticas",
+        "Ahorro del 72% vs mensual",
+        "Facturación anual"
       ],
       popular: true
-    },
-    {
-      name: "Empresarial",
-      description: "Para grandes organizaciones",
-      monthlyPrice: 149,
-      annualPrice: 1490,
-      features: [
-        "Usuarios ilimitados",
-        "Todas las funciones incluidas",
-        "Gestión multi-sucursal",
-        "Análisis predictivo",
-        "Soporte 24/7",
-        "100GB de almacenamiento",
-        "Integraciones personalizadas",
-        "Gerente de cuenta dedicado",
-        "SLA garantizado"
-      ],
-      popular: false
     }
   ]
 
@@ -68,46 +54,36 @@ function Pricing() {
           {/* Header */}
           <div className="text-center mb-20">
             <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
-              Precios simples y transparentes
+              Licencias por dispositivo
             </h1>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-              Elige el plan que mejor se adapte a tu negocio
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">
+              Elige entre facturación mensual o anual. Cada licencia cubre un dispositivo.
             </p>
-          </div>
-
-          {/* Toggle Mensual/Anual */}
-          <div className="flex justify-center mb-16">
-            <div className="border border-gray-200 rounded-full p-1 flex items-center">
-              <button
-                onClick={() => setIsAnnual(false)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  !isAnnual 
-                    ? 'bg-gray-900 text-white' 
-                    : 'text-gray-500 hover:text-gray-900'
-                }`}
-              >
-                Mensual
-              </button>
-              <button
-                onClick={() => setIsAnnual(true)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 relative ${
-                  isAnnual 
-                    ? 'bg-gray-900 text-white' 
-                    : 'text-gray-500 hover:text-gray-900'
-                }`}
-              >
-                Anual
-                {!isAnnual && (
-                  <span className="absolute -top-3 -right-3 bg-green-100 text-green-700 text-xs px-1.5 py-0.5 rounded-full">
-                    -17%
-                  </span>
-                )}
-              </button>
+            
+            {/* Platform Icons */}
+            <div className="flex justify-center items-center space-x-8">
+              <div className="flex items-center space-x-2">
+                <svg className="w-8 h-8 text-gray-600" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1518-.5972.416.416 0 00-.5972.1518l-2.0223 3.5024c-1.5025-.6852-3.1917-1.0652-4.9308-1.0652-1.7391 0-3.4283.38-4.9308 1.0652L5.2535 5.8526a.4161.4161 0 00-.5972-.1518.416.416 0 00-.1518.5972L6.4818 9.3214C2.6888 11.5127 0 15.559 0 20.2273h24C24 15.559 21.3112 11.5127 17.8772 9.3214z"/>
+                </svg>
+                <span className="text-sm text-gray-600 font-medium">Android</span>
+              </div>
+              
+              <div className="w-px h-6 bg-gray-300"></div>
+              
+              <div className="flex items-center space-x-2">
+                <svg className="w-8 h-8 text-gray-600" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                <span className="text-sm text-gray-600 font-medium">iOS</span>
+              </div>
             </div>
           </div>
 
+
+
           {/* Pricing Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {plans.map((plan, index) => (
               <div
                 key={plan.name}
@@ -141,17 +117,15 @@ function Pricing() {
                         $
                       </span>
                       <span className="text-4xl font-light text-gray-900">
-                        {isAnnual ? Math.floor(plan.annualPrice / 12) : plan.monthlyPrice}
+                        {plan.price}
                       </span>
                       <span className="text-gray-500 ml-1 text-sm">
-                        /mes
+                        /{plan.period}
                       </span>
                     </div>
-                    {isAnnual && (
-                      <p className="text-xs text-gray-500 mt-1">
-                        Facturado anualmente
-                      </p>
-                    )}
+                    <p className="text-xs text-gray-500 mt-1">
+                      Por dispositivo
+                    </p>
                   </div>
 
                   {/* Features */}

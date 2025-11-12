@@ -7,6 +7,16 @@ function MainScreen() {
       <div className="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]"></div>
 
       <div className="gap-4 mb-[300px] flex flex-col items-center justify-center">
+        <div className='size-[46px] flex items-center justify-center rounded-xl bg-[#1a3d59]'>
+          <Image
+            src="/iSync_logo_white.svg"
+            alt="Logo iSync"
+            width={36}
+            height={36}
+            className="w-9 h-9"
+          />
+        </div>
+
         <section className="flex flex-col gap-1 items-center justify-center">
           <BlurFade delay={0.25} inView>
             <h2 className="text-3xl text-center font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
@@ -20,7 +30,7 @@ function MainScreen() {
           </BlurFade>
         </section>
 
-        <div className="flex gap-4 mt-4">
+        {/* <div className="flex gap-4 mt-4">
           <button className="bg-[#1A3D59] text-white px-6 py-2 rounded-full cursor-pointer hover:bg-gray-800 transition">
             Comenzar
           </button>
@@ -28,14 +38,14 @@ function MainScreen() {
           <button className="bg-gray-200 text-gray-700 px-6 py-2 rounded-full cursor-pointer hover:bg-gray-300">
             Solicitar Demo
           </button>
-        </div>
+        </div> */}
       </div>
 
       <picture className="absolute bottom-[-420px] overflow-hidden flex">
         <Image
           src="/assets/images/iphone_home.png"
           alt="iSync ERP Mobile App"
-          width={400}
+          width={380}
           height={700}
           priority
           quality={100}
@@ -44,7 +54,7 @@ function MainScreen() {
         <Image
           src="/assets/images/iphone_locations.png"
           alt="iSync ERP Mobile App"
-          width={400}
+          width={380}
           height={700}
           priority
           quality={100}
