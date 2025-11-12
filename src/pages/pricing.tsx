@@ -63,61 +63,63 @@ function Pricing() {
     <>
       <Navbar />
 
-      <main className={`min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-16 px-4 ${nataSans.className}`}>
-        <div className="max-w-7xl mx-auto">
+      <main className={`min-h-screen bg-white py-20 px-4 ${nataSans.className}`}>
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold text-gray-900 mb-4">
-              Planes y Precios
+          <div className="text-center mb-20">
+            <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
+              Precios simples y transparentes
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Elige el plan perfecto para tu empresa. Todos los planes incluyen actualizaciones gratuitas y soporte técnico.
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+              Elige el plan que mejor se adapte a tu negocio
             </p>
           </div>
 
           {/* Toggle Mensual/Anual */}
-          <div className="flex justify-center mb-12">
-            <div className="bg-gray-100 p-1 rounded-full flex items-center">
+          <div className="flex justify-center mb-16">
+            <div className="border border-gray-200 rounded-full p-1 flex items-center">
               <button
                 onClick={() => setIsAnnual(false)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   !isAnnual 
-                    ? 'bg-white text-gray-900 shadow-md' 
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? 'bg-gray-900 text-white' 
+                    : 'text-gray-500 hover:text-gray-900'
                 }`}
               >
                 Mensual
               </button>
               <button
                 onClick={() => setIsAnnual(true)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 relative ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 relative ${
                   isAnnual 
-                    ? 'bg-white text-gray-900 shadow-md' 
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? 'bg-gray-900 text-white' 
+                    : 'text-gray-500 hover:text-gray-900'
                 }`}
               >
                 Anual
-                <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
-                  -17%
-                </span>
+                {!isAnnual && (
+                  <span className="absolute -top-3 -right-3 bg-green-100 text-green-700 text-xs px-1.5 py-0.5 rounded-full">
+                    -17%
+                  </span>
+                )}
               </button>
             </div>
           </div>
 
           {/* Pricing Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {plans.map((plan, index) => (
               <div
                 key={plan.name}
-                className={`relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${
+                className={`relative border rounded-xl transition-all duration-200 hover:shadow-lg ${
                   plan.popular 
-                    ? 'ring-2 ring-blue-500 scale-105' 
-                    : 'hover:scale-105'
+                    ? 'border-gray-900 bg-gray-50' 
+                    : 'border-gray-200 bg-white hover:border-gray-300'
                 }`}
               >
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  <div className="absolute -top-3 left-6">
+                    <span className="bg-gray-900 text-white px-3 py-1 rounded-full text-xs font-medium">
                       Más Popular
                     </span>
                   </div>
@@ -125,39 +127,39 @@ function Pricing() {
 
                 <div className="p-8">
                   {/* Plan Name */}
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-xl font-medium text-gray-900 mb-1">
                     {plan.name}
                   </h3>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-sm text-gray-500 mb-8">
                     {plan.description}
                   </p>
 
                   {/* Price */}
                   <div className="mb-8">
                     <div className="flex items-baseline">
-                      <span className="text-4xl font-bold text-gray-900">
+                      <span className="text-3xl font-light text-gray-900">
                         $
                       </span>
-                      <span className="text-5xl font-bold text-gray-900">
+                      <span className="text-4xl font-light text-gray-900">
                         {isAnnual ? Math.floor(plan.annualPrice / 12) : plan.monthlyPrice}
                       </span>
-                      <span className="text-gray-600 ml-2">
+                      <span className="text-gray-500 ml-1 text-sm">
                         /mes
                       </span>
                     </div>
                     {isAnnual && (
-                      <p className="text-sm text-green-600 mt-1">
-                        Facturado anualmente (${plan.annualPrice}/año)
+                      <p className="text-xs text-gray-500 mt-1">
+                        Facturado anualmente
                       </p>
                     )}
                   </div>
 
                   {/* Features */}
-                  <ul className="space-y-4 mb-8">
+                  <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start">
+                      <li key={featureIndex} className="flex items-center text-sm">
                         <svg 
-                          className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" 
+                          className="w-4 h-4 text-gray-400 mr-3 flex-shrink-0" 
                           fill="none" 
                           stroke="currentColor" 
                           viewBox="0 0 24 24"
@@ -169,18 +171,18 @@ function Pricing() {
                             d="M5 13l4 4L19 7"
                           />
                         </svg>
-                        <span className="text-gray-700">{feature}</span>
+                        <span className="text-gray-600">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
                   {/* CTA Button */}
-                  <button className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 ${
+                  <button className={`w-full py-3 rounded-lg text-sm font-medium transition-colors duration-200 ${
                     plan.popular
-                      ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200 border-2 border-gray-200 hover:border-gray-300'
+                      ? 'bg-gray-900 text-white hover:bg-gray-800'
+                      : 'border border-gray-200 text-gray-900 hover:bg-gray-50'
                   }`}>
-                    {plan.popular ? 'Comenzar Ahora' : 'Seleccionar Plan'}
+                    Comenzar
                   </button>
                 </div>
               </div>
@@ -188,29 +190,16 @@ function Pricing() {
           </div>
 
           {/* Additional Info */}
-          <div className="text-center mt-16">
-            <p className="text-gray-600 mb-4">
-              ¿Necesitas más de 100 usuarios? <a href="#" className="text-blue-500 hover:underline">Contáctanos</a> para precios personalizados.
+          <div className="text-center mt-20">
+            <p className="text-sm text-gray-500 mb-8">
+              ¿Necesitas una solución personalizada? <a href="#" className="text-gray-900 hover:underline">Hablemos</a>
             </p>
-            <div className="flex justify-center items-center space-x-8 text-sm text-gray-500">
-              <span className="flex items-center">
-                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                30 días de garantía
-              </span>
-              <span className="flex items-center">
-                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                Cancela cuando quieras
-              </span>
-              <span className="flex items-center">
-                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                SSL seguro
-              </span>
+            <div className="flex justify-center items-center space-x-8 text-xs text-gray-400">
+              <span>30 días de prueba</span>
+              <span>•</span>
+              <span>Cancela cuando quieras</span>
+              <span>•</span>
+              <span>Soporte incluido</span>
             </div>
           </div>
         </div>
