@@ -14,10 +14,9 @@ function Navbar() {
   }
 
   const navItems = [
-    { href: "/", label: "Beneficios" },
-    { href: "/", label: "Soporte Técnico" },
+    { href: "/", label: "Inicio" },
+    { href: "/beneficios", label: "Beneficios" },
     { href: "/", label: "Contacto" },
-    { href: "/pricing", label: "Precios" }
   ]
 
   return (

@@ -43,7 +43,7 @@ function FAQ() {
   ]
 
   return (
-    <section className={`py-16 px-4 bg-gray-50 ${nataSans.className}`}>
+    <section className={`py-16 px-4 bg-white ${nataSans.className}`}>
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -51,8 +51,8 @@ function FAQ() {
             TRUSTED BY
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            Frequently<br />
-            Asked Questions
+            Preguntas<br />
+            Frecuentes
           </h2>
         </div>
 
@@ -79,16 +79,6 @@ function FAQ() {
             </AccordionItem>
           ))}
         </Accordion>
-
-        {/* Contact CTA */}
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
-            ¿Tienes más preguntas sobre la implementación?
-          </p>
-          <button className="bg-[#1A3D59] text-white px-8 py-3 rounded-full hover:bg-gray-800 transition-colors duration-200 font-semibold">
-            Contactar a un Especialista
-          </button>
-        </div>
       </div>
     </section>
   )
