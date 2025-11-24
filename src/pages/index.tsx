@@ -3,8 +3,8 @@ import Beneficios from "../components/app/Beneficios";
 import MainScreen from "../components/app/MainScreen";
 import Navbar from "../components/app/Navbar";
 import FAQ from "../components/app/FAQ";
-import AnimatedBeamDemo from "@/components/app/Beem";
-import Notifications from "@/components/app/Notifications";
+// import AnimatedBeamDemo from "@/components/app/Beem";
+// import Notifications from "@/components/app/Notifications";
 import ScreenShots from "@/components/app/ScreenShots";
 import Grid from "@/components/app/Grid";
 

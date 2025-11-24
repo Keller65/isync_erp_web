@@ -26,7 +26,7 @@ const Circle = forwardRef<
 
 Circle.displayName = "Circle"
 
-export default function iSyncFlowDemo({
+export default function ISyncFlowDemo({
   className,
 }: {
   className?: string
