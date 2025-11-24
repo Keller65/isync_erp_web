@@ -16,7 +16,7 @@ function Navbar() {
   const navItems = [
     { href: "/", label: "Inicio" },
     { href: "/beneficios", label: "Beneficios" },
-    { href: "/", label: "Contacto" },
+    { href: "/contacto", label: "Contacto" },
   ]
 
   return (

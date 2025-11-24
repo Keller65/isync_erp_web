@@ -2,8 +2,9 @@ import Image from 'next/image';
 
 export default function ScreenShots() {
   return (
-    <section className='min-h-[500px] w-full bg-gray-50 p-6'>
-      <h2 className='text-2xl font-bold text-center text-gray-800 mb-8'>Sistemas Compatibles</h2>
+    <section className='min-h-[500px] w-full bg-white p-6 flex flex-col items-center justify-center'>
+      <h2 className='text-4xl font-bold text-center text-gray-800 mb-8'>Sistemas Compatibles</h2>
+
       <div className='flex gap-10 items-center justify-center flex-wrap'>
         <div className="w-[340px] h-[200px] bg-gray-100 rounded-2xl flex items-center justify-center overflow-hidden">
           <Image
