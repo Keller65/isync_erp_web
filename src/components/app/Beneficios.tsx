@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/ui/marquee";
 import { Nata_Sans } from "next/font/google";
 import { ShoppingCart, FileText, ChartBar, MapPin, Package, Bell, Fingerprint, Printer, Cardholder, FilePdf } from "phosphor-react";
+import Link from "next/link";
 
 const nataSans = Nata_Sans({ subsets: ["latin"] });
 
@@ -111,7 +112,12 @@ const BeneficioCard = ({
 function Beneficios() {
   return (
     <section className={`w-full min-h-[60vh] py-16 px-2 sm:px-4 md:px-0 ${nataSans.className}`}>
-      <h2 className="text-4xl font-bold text-center mb-14 text-gray-900">Beneficios de iSync ERP</h2>
+
+      <div className="flex flex-col m-auto gap-4 mb-12">
+        <h2 className="text-4xl font-bold text-center text-gray-900">Beneficios de iSync</h2>
+        <Link className="m-auto text-center" href="/beneficios">Ver todos los beneficios</Link>
+      </div>
+
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
         <Marquee pauseOnHover className="[--duration:30s]">
           {firstRow.map((beneficio, index) => (

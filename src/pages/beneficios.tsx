@@ -1,6 +1,10 @@
 import { ShoppingCart, Cardholder, Printer, ChartBar, MapPin, FilePdf, Bell, Fingerprint, FileText, Package, Users, MagnifyingGlass, ArchiveBox, Tag } from "phosphor-react";
 import Navbar from "@/components/app/Navbar";
 import Head from "next/head";
+import Image from "next/image";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
 
 const beneficios = [
 	{
@@ -101,10 +105,13 @@ export default function Beneficios() {
 				/>
 			</Head>
 
-			<section className="min-h-screen bg-white p-8 mt-18">
+			<section className="bg-white p-8 mt-18">
 				<h1 className="text-3xl font-bold text-center text-gray-800 mb-12">
 					Beneficios de Nuestra Aplicación
 				</h1>
+
+			
+
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					{beneficios.map((beneficio, index) => (
 						<div
