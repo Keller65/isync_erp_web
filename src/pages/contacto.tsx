@@ -13,7 +13,7 @@ function ContactPage() {
         <section className="py-16 px-6 w-full max-w-6xl bg-white rounded-lg grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Información de contacto */}
           <div className="space-y-6">
-            <div className='size-[46px] flex items-center justify-center rounded-xl bg-[#1a3d59] m-auto'>
+            <div className='size-[46px] flex items-center justify-center rounded-xl bg-[#1a3d59]'>
               <Image
                 src="/iSync_logo_white.svg"
                 alt="Logo iSync"
@@ -27,13 +27,10 @@ function ContactPage() {
             <p className="text-lg text-gray-600">Estamos aquí para ayudarte. Envíanos tus preguntas o comentarios.</p>
             <div className="space-y-4">
               <p className="text-gray-700">
-                <strong>Email:</strong> ventas@isync.hn
+                <strong>Email:</strong> isynchn@gmail.com
               </p>
               <p className="text-gray-700">
-                <strong>Teléfono:</strong> +17631683
-              </p>
-              <p className="text-gray-700">
-                <strong>Dirección:</strong> 123 Innovation Avenue, Suite 456, Tech District, San Francisco, CA 94107, United States
+                <strong>Teléfono:</strong> +504 9595-5397
               </p>
             </div>
             <div className="flex space-x-4">

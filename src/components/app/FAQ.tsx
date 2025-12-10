@@ -22,15 +22,16 @@ const FAQCard: React.FC<FAQCardProps> = ({ item }) => {
   const cardRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
+    const element = cardRef.current;
+    if (!element) return;
+
     // Definición del Intersection Observer
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
           // Deja de observar una vez que el elemento ha aparecido
-          if (cardRef.current) {
-            observer.unobserve(cardRef.current)
-          }
+          observer.unobserve(element);
         }
       },
       {
@@ -40,15 +41,12 @@ const FAQCard: React.FC<FAQCardProps> = ({ item }) => {
       }
     )
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current)
-    }
+    observer.observe(element)
 
     // Función de limpieza
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current)
-      }
+      observer.unobserve(element);
+      observer.disconnect();
     }
   }, [])
 

@@ -1,10 +1,6 @@
 import { ShoppingCart, Cardholder, Printer, ChartBar, MapPin, FilePdf, Bell, Fingerprint, FileText, Package, Users, MagnifyingGlass, ArchiveBox, Tag } from "phosphor-react";
 import Navbar from "@/components/app/Navbar";
 import Head from "next/head";
-import Image from "next/image";
-import { Poppins } from "next/font/google";
-
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
 
 const beneficios = [
 	{

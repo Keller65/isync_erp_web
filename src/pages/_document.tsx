@@ -1,10 +1,14 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
+import Image from "next/image";
 import Footer from "@/components/app/Footer";
 
 export default function Document() {
   return (
     <Html lang="en">
-      <script
+      <Script
+        id="google-analytics-script"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -28,7 +32,7 @@ export default function Document() {
         fbq('track', 'PageView');`,
         }}
       />
-      <noscript><img height="1" width="1" style={{ display: "none" }}
+      <noscript><Image alt="facebook_pixel" height="1" width="1" style={{ display: "none" }}
         src="https://www.facebook.com/tr?id=1391605178977412&ev=PageView&noscript=1"
       /></noscript>
       {/* <!-- End Meta Pixel Code --> */}

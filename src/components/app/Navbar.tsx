@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { Nata_Sans } from 'next/font/google'
+import Link from 'next/link'
 
 const nataSans = Nata_Sans({ subsets: ['latin'] })
 
@@ -25,11 +26,11 @@ function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <Image 
-              src="/iSync_logo.svg" 
-              alt="Logo iSync" 
-              width={36} 
-              height={36} 
+            <Image
+              src="/iSync_logo.svg"
+              alt="Logo iSync"
+              width={36}
+              height={36}
               className="w-9 h-9"
             />
           </div>
@@ -38,21 +39,21 @@ function Navbar() {
           <ul className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <li key={item.href}>
-                <a 
+                <Link
                   href={item.href}
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-200 text-sm font-medium"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
 
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="bg-[#1a3d59] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors duration-200">
-              Comenzar Gratis
-            </button>
+            <Link target="_blank" href="https://wa.me/50495955397?text=Cotizar" className="bg-[#1a3d59] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors duration-200">
+              Realizar Cotizacion
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -62,10 +63,10 @@ function Navbar() {
               className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors duration-200"
               aria-label="Toggle menu"
             >
-              <svg 
-                className={`w-5 h-5 transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''}`} 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className={`w-5 h-5 transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''}`}
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
                 {isMenuOpen ? (
@@ -84,20 +85,20 @@ function Navbar() {
             <ul className="space-y-3">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <a 
+                  <Link
                     href={item.href}
                     className="block text-gray-600 hover:text-gray-900 transition-colors duration-200 text-sm font-medium py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
             <div className="mt-4 pt-4 border-t border-gray-100">
-              <button className="w-full bg-[#1a3d59] text-white px-4 py-2 rounded-full text-sm font-medium">
-                Comenzar Gratis
-              </button>
+              <Link target="_blank" href="https://wa.me/50495955397?text=Cotizar" className="w-full bg-[#1a3d59] text-white px-4 py-2 rounded-full text-sm font-medium">
+                Realizar Cotizacion
+              </Link>
             </div>
           </div>
         </div>

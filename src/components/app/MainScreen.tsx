@@ -17,28 +17,18 @@ function MainScreen() {
           />
         </div>
 
-        <section className="flex flex-col gap-1 items-center justify-center">
+        <section className="flex flex-col gap-4 items-center justify-center">
           <BlurFade delay={0.25} inView>
             <h2 className="text-3xl text-center font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
               Más agilidad, menos errores, <br /> todo sincronizado.
             </h2>
           </BlurFade>
-          <BlurFade delay={0.25 * 2} inView>
-            <span className="text-xl tracking-tighter text-center text-pretty sm:text-3xl xl:text-xl/none">
+          <BlurFade className='text-center' delay={0.25 * 2} inView>
+            <span className="text-md text-gray-400 tracking-tighter text-center sm:text-3xl xl:text-xl/none">
               Optimiza tu negocio en Honduras con nuestra app móvil
             </span>
           </BlurFade>
         </section>
-
-        {/* <div className="flex gap-4 mt-4">
-          <button className="bg-[#1A3D59] text-white px-6 py-2 rounded-full cursor-pointer hover:bg-gray-800 transition">
-            Comenzar
-          </button>
-
-          <button className="bg-gray-200 text-gray-700 px-6 py-2 rounded-full cursor-pointer hover:bg-gray-300">
-            Solicitar Demo
-          </button>
-        </div> */}
       </div>
 
       <picture className="absolute bottom-[-420px] overflow-hidden flex">
