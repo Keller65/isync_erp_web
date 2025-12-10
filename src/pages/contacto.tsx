@@ -133,7 +133,6 @@ function ContactPage() {
                 className="mt-2 block w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3"
               >
                 <option value="SAP B1">SAP B1</option>
-                <option value="SAP FOR HANA">SAP FOR HANA</option>
                 <option value="CONTPAQI">CONTPAQI</option>
               </select>
             </div>
