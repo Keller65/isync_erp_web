@@ -34,7 +34,7 @@ function MainScreen() {
       <picture className="absolute bottom-[-420px] overflow-hidden flex">
         <Image
           src="/assets/images/iphone_home.png"
-          alt="iSync ERP Mobile App"
+          alt="iSync Mobile App"
           width={380}
           height={700}
           priority
@@ -43,7 +43,7 @@ function MainScreen() {
 
         <Image
           src="/assets/images/iphone_locations.png"
-          alt="iSync ERP Mobile App"
+          alt="iSync Mobile App"
           width={380}
           height={700}
           priority

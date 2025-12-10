@@ -216,8 +216,8 @@ function FAQ() {
 
     // Extra: integración, soporte, facturación HN, personalización
     {
-      question: "¿Cómo se integra iSync ERP con nuestro sistema actual de contabilidad?",
-      answer: "iSync ERP puede integrarse con sistemas contables y ERPs mediante conectores y APIs. Nuestro equipo técnico se encarga del mapeo de cuentas, sincronización y validación de datos para mantener la integridad de la información sin interrumpir tus operaciones.",
+      question: "¿Cómo se integra iSync con nuestro sistema actual de contabilidad?",
+      answer: "iSync puede integrarse con sistemas contables y ERPs mediante conectores y APIs. Nuestro equipo técnico se encarga del mapeo de cuentas, sincronización y validación de datos para mantener la integridad de la información sin interrumpir tus operaciones.",
       category: "Integración"
     },
     {
