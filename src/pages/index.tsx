@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>iSync</title>
-        <meta name="description" content="Optimiza tu negocio en Honduras con iSync ERP: pedidos, cobros, facturación en PDF, impresión térmica y dashboard de ventas desde tu celular." />
+        <title>iSync | App móvil para SAP</title>
+        <meta name="description" content="Optimiza tu negocio en Honduras con iSync, App móvil para SAP Business One: pedidos, cobros, facturación en PDF, impresión térmica y dashboard de ventas desde tu celular." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -23,14 +23,14 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://isyncerp.com/" />
         <meta property="og:title" content="iSync" />
-        <meta property="og:description" content="Optimiza tu negocio en Honduras con iSync: pedidos, cobros, facturación en PDF, impresión térmica y dashboard de ventas desde tu celular." />
+        <meta property="og:description" content="Optimiza tu negocio en Honduras con iSync, App móvil para SAP Business One: pedidos, cobros, facturación en PDF, impresión térmica y dashboard de ventas desde tu celular." />
         <meta property="og:image" content="https://isyncerp.com/og-image.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://isyncerp.com/" />
         <meta name="twitter:title" content="iSync" />
-        <meta name="twitter:description" content="Optimiza tu negocio en Honduras con iSync: pedidos, cobros, facturación en PDF, impresión térmica y dashboard de ventas desde tu celular." />
+        <meta name="twitter:description" content="Optimiza tu negocio en Honduras con iSync, App móvil para SAP Business One: pedidos, cobros, facturación en PDF, impresión térmica y dashboard de ventas desde tu celular." />
         <meta name="twitter:image" content="https://isyncerp.com/og-image.png" />
       </Head>
 
