@@ -9,11 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
     "@vercel/analytics": "^1.6.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "firebase": "^12.5.0",
+    "firebase": "^12.6.0",
     "gsap": "^3.13.0",
     "locomotive-scroll": "^4.1.4",
     "lottie-react": "^2.4.1",
@@ -25,7 +26,8 @@
     "react-dom": "19.1.0",
     "react-lottie-player": "^2.1.0",
     "tailwind-merge": "^3.3.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

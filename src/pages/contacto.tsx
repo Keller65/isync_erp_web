@@ -1,207 +1,242 @@
-import React, { useState } from 'react';
+'use client';
+
+import React from 'react';
 import Navbar from '@/components/app/Navbar';
 import Image from 'next/image';
+import { db } from '../../firebase/config';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import Head from 'next/head';
 
-function ContactPage() {
-  const [isUnlimitedDevices, setIsUnlimitedDevices] = useState("Sí");
+/* ---------------------- */
+/* Schema de validación */
+/* ---------------------- */
+const contactSchema = z.object({
+  name: z.string().min(3, 'Ingresa tu nombre completo'),
+  email: z.string().email('Correo inválido'),
+  companyName: z.string().min(2, 'Nombre de empresa requerido'),
+  rtn: z.string().min(8, 'RTN inválido'),
+  phone: z.string().min(8, 'Teléfono inválido'),
+  system: z.enum(['SAP B1', 'CONTPAQI']),
+  devices: z.boolean(),
+  licenses: z.number().min(1).optional(),
+  contractType: z.enum(['Mensual', 'Anual', 'Permanente']),
+  message: z.string().min(10, 'El mensaje es muy corto'),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
+
+export default function ContactPage() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      system: 'SAP B1',
+      devices: true,
+      contractType: 'Mensual',
+    },
+  });
+
+  const devices = watch('devices');
+
+  const onSubmit = async (data: ContactFormData) => {
+    await addDoc(collection(db, 'contacts'), {
+      ...data,
+      createdAt: serverTimestamp(),
+    });
+    reset();
+  };
 
   return (
     <>
       <Navbar />
+      <Head>
+        <title>Contacto | iSync – Integración con SAP Business One</title>
 
-      <div className="min-h-screen flex justify-center mt-12">
-        <section className="py-16 px-6 w-full max-w-6xl bg-white rounded-lg grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Información de contacto */}
+        <meta
+          name="description"
+          content="Contacta con iSync y conecta tu empresa con SAP Business One o CONTPAQi. Automatiza pedidos, ventas y cobranzas desde el móvil."
+        />
+
+        <meta
+          name="keywords"
+          content="SAP Business One, CONTPAQi, integración SAP, app para SAP B1, ventas móviles, iSync"
+        />
+
+        <link rel="canonical" href="https://isynchn.com/contacto" />
+
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="iSync" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Contacto | iSync" />
+        <meta
+          property="og:description"
+          content="Solicita información y conecta tu empresa con SAP Business One o CONTPAQi."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://isync.com/contacto" />
+        <meta property="og:image" content="https://isync.com/og-contact.png" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contacto | iSync" />
+        <meta
+          name="twitter:description"
+          content="Automatiza tu empresa con iSync y SAP Business One."
+        />
+        <meta name="twitter:image" content="https://isync.com/og-contact.png" />
+      </Head>
+
+      <div className="min-h-screen flex justify-center px-6 py-16 bg-white p-4">
+        <section className="w-full max-w-7xl mt-6 bg-white rounded-2xl grid grid-cols-1 md:grid-cols-2 gap-12 p-10">
+
+          {/* ---------------------- */}
+          {/* Información */}
+          {/* ---------------------- */}
           <div className="space-y-6">
-            <div className='size-[46px] flex items-center justify-center rounded-xl bg-[#1a3d59]'>
+            <div className="size-12 flex items-center justify-center rounded-xl bg-[#1a3d59]">
               <Image
                 src="/iSync_logo_white.svg"
                 alt="Logo iSync"
-                width={36}
-                height={36}
-                className="w-9 h-9"
+                width={32}
+                height={32}
               />
             </div>
 
-            <h2 className="text-4xl font-bold text-gray-900">Contáctanos</h2>
-            <p className="text-lg text-gray-600">Estamos aquí para ayudarte. Envíanos tus preguntas o comentarios.</p>
-            <div className="space-y-4">
-              <p className="text-gray-700">
-                <strong>Email:</strong> isynchn@gmail.com
-              </p>
-              <p className="text-gray-700">
-                <strong>Teléfono:</strong> +504 9595-5397
-              </p>
+            <h1 className="text-3xl font-bold text-gray-900">
+              Contáctanos
+            </h1>
+
+            <p className="text-gray-600 leading-relaxed">
+              Cuéntanos sobre tu empresa y te ayudaremos a integrar iSync
+              con tu sistema contable de forma segura y eficiente.
+            </p>
+
+            <p className="text-sm text-gray-500">
+              Solución móvil para ventas, pedidos y cobranzas integrada con SAP Business One y CONTPAQi.
+            </p>
+
+            <ul className="space-y-2 text-sm text-gray-700">
+              <li>✔ Integración directa con SAP Business One</li>
+              <li>✔ Ventas y pedidos desde el móvil</li>
+              <li>✔ Impresión de recibos y documentos</li>
+              <li>✔ Seguridad y control empresarial</li>
+            </ul>
+
+            <div className="space-y-2 text-sm text-gray-700 pt-4">
+              <p><strong>Email:</strong> isynchn@gmail.com</p>
+              <p><strong>Teléfono:</strong> +504 9595-5397</p>
             </div>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-500 hover:text-gray-900">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" className="text-gray-500 hover:text-gray-900">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="text-gray-500 hover:text-gray-900">
-                <i className="fab fa-youtube"></i>
-              </a>
-              <a href="#" className="text-gray-500 hover:text-gray-900">
-                <i className="fab fa-xing"></i>
-              </a>
-            </div>
+
+            <p className="text-xs text-gray-500">
+              Diseñado para empresas que usan ERP y equipos comerciales en campo.
+            </p>
           </div>
 
-          {/* Formulario de contacto */}
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  Nombre Completo
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="mt-2 block w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3"
-                  placeholder="Tu nombre completo"
-                />
+          {/* ---------------------- */}
+          {/* Formulario */}
+          {/* ---------------------- */}
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
+
+            {/* Datos de contacto */}
+            <div className="space-y-6 border-b pb-8">
+              <h3 className="text-lg font-semibold text-gray-900">
+                Datos de contacto
+              </h3>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <Input label="Nombre completo" error={errors.name?.message}>
+                  <input {...register('name')} />
+                </Input>
+
+                <Input label="Correo electrónico" error={errors.email?.message}>
+                  <input type="email" {...register('email')} />
+                </Input>
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                  Correo Electrónico
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="mt-2 block w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3"
-                  placeholder="tu@email.com"
-                />
+              <Input label="Teléfono" error={errors.phone?.message}>
+                <input {...register('phone')} />
+              </Input>
+            </div>
+
+            {/* Empresa */}
+            <div className="space-y-6 border-b pb-8">
+              <h3 className="text-lg font-semibold text-gray-900">
+                Información de la empresa
+              </h3>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <Input label="Nombre de la empresa" error={errors.companyName?.message}>
+                  <input {...register('companyName')} />
+                </Input>
+
+                <Input label="RTN" error={errors.rtn?.message}>
+                  <input {...register('rtn')} />
+                </Input>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">
-                  Nombre de la Empresa
-                </label>
-                <input
-                  type="text"
-                  id="companyName"
-                  name="companyName"
-                  className="mt-2 block w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3"
-                  placeholder="Nombre de la empresa"
-                />
-              </div>
+            {/* Servicio */}
+            <div className="space-y-6">
+              <h3 className="text-lg font-semibold text-gray-900">
+                Detalles del servicio
+              </h3>
 
-              <div>
-                <label htmlFor="rtn" className="block text-sm font-medium text-gray-700">
-                  RTN
-                </label>
-                <input
-                  type="text"
-                  id="rtn"
-                  name="rtn"
-                  className="mt-2 block w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3"
-                  placeholder="RTN de la empresa"
-                />
-              </div>
-            </div>
+              <Select label="Sistema" {...register('system')}>
+                <option value="SAP B1">SAP Business One</option>
+                <option value="CONTPAQI">CONTPAQi</option>
+              </Select>
 
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                Teléfono
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                className="mt-2 block w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3"
-                placeholder="Número de teléfono"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="system" className="block text-sm font-medium text-gray-700">
-                Sistema
-              </label>
-              <select
-                id="system"
-                name="system"
-                className="mt-2 block w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3"
+              <Select
+                label="Dispositivos ilimitados"
+                {...register('devices', { setValueAs: v => v === 'true' })}
               >
-                <option value="SAP B1">SAP B1</option>
-                <option value="CONTPAQI">CONTPAQI</option>
-              </select>
-            </div>
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </Select>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="devices" className="block text-sm font-medium text-gray-700">
-                  Dispositivos Ilimitados
-                </label>
-                <select
-                  id="devices"
-                  name="devices"
-                  className="mt-2 block w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3"
-                  value={isUnlimitedDevices}
-                  onChange={(e) => setIsUnlimitedDevices(e.target.value)}
+              {!devices && (
+                <Input
+                  label="Cantidad de licencias"
+                  error={errors.licenses?.message}
                 >
-                  <option value="Sí">Sí</option>
-                  <option value="No">No</option>
-                </select>
-              </div>
+                  <input type="number" {...register('licenses', { valueAsNumber: true })} />
+                </Input>
+              )}
 
-              <div>
-                <label htmlFor="licenses" className="block text-sm font-medium text-gray-700">
-                  Cantidad de Licencias a Comprar
-                </label>
-                <input
-                  type="number"
-                  id="licenses"
-                  name="licenses"
-                  className="mt-2 block w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3"
-                  placeholder="Número de licencias"
-                  disabled={isUnlimitedDevices === "Sí"}
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="contractType" className="block text-sm font-medium text-gray-700">
-                Tipo de Contratación
-              </label>
-              <select
-                id="contractType"
-                name="contractType"
-                className="mt-2 block w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3"
-              >
+              <Select label="Tipo de contratación" {...register('contractType')}>
                 <option value="Mensual">Mensual</option>
                 <option value="Anual">Anual</option>
                 <option value="Permanente">Permanente</option>
-              </select>
+              </Select>
+
+              <Textarea label="Mensaje" error={errors.message?.message}>
+                <textarea rows={4} {...register('message')} />
+              </Textarea>
             </div>
 
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                Mensaje
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                className="mt-2 block w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3"
-                placeholder="Escribe tu mensaje aquí..."
-              ></textarea>
-            </div>
+            {/* Feedback */}
+            {isSubmitSuccessful && (
+              <p className="text-green-600 text-sm">
+                Mensaje enviado correctamente. Pronto nos pondremos en contacto contigo.
+              </p>
+            )}
 
-            <div className="text-center">
-              <button
-                type="submit"
-                className="w-full md:w-auto inline-flex justify-center py-3 px-6 border border-transparent rounded-lg text-lg font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-              >
-                Enviar Mensaje
-              </button>
-            </div>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full rounded-xl bg-[#1a3d59] py-3 text-white font-semibold hover:opacity-90 transition disabled:opacity-50"
+            >
+              {isSubmitting ? 'Enviando...' : 'Solicitar información'}
+            </button>
           </form>
         </section>
       </div>
@@ -209,4 +244,50 @@ function ContactPage() {
   );
 }
 
-export default ContactPage;
+function Input({ label, error, children }: any) {
+  return (
+    <div>
+      <label className="block text-sm font-medium text-gray-600 mb-1">
+        {label}
+      </label>
+      <div className="rounded-xl border border-gray-300 bg-gray-50 focus-within:bg-white focus-within:border-gray-900 transition">
+        {React.cloneElement(children, {
+          className:
+            'w-full bg-transparent px-4 py-3 text-sm outline-none',
+        })}
+      </div>
+      {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
+    </div>
+  );
+}
+
+function Select({ label, children, ...props }: any) {
+  return (
+    <div>
+      <label className="block text-sm font-medium text-gray-600 mb-1">
+        {label}
+      </label>
+      <select
+        {...props}
+        className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm outline-none focus:bg-white focus:border-gray-900 transition"
+      >
+        {children}
+      </select>
+    </div>
+  );
+}
+
+function Textarea({ label, error, children }: any) {
+  return (
+    <div>
+      <label className="block text-sm font-medium text-gray-600 mb-1">
+        {label}
+      </label>
+      {React.cloneElement(children, {
+        className:
+          'w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm outline-none focus:bg-white focus:border-gray-900 transition',
+      })}
+      {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
+    </div>
+  );
+}

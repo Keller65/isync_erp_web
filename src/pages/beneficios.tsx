@@ -94,11 +94,43 @@ export default function Beneficios() {
 		<>
 			<Navbar />
 			<Head>
-				<title>Beneficios de iSync</title>
+				<title>
+					Beneficios de iSync | App móvil integrada con SAP Business One y ERP
+				</title>
+
 				<meta
 					name="description"
-					content="Descubre los beneficios clave de nuestra aplicación móvil integrada con ERP para optimizar la gestión de ventas, inventarios y clientes."
+					content="Conoce los beneficios de iSync: una app móvil integrada con SAP Business One y ERP que optimiza ventas, inventarios y la gestión de clientes en tiempo real."
 				/>
+
+				<meta
+					name="keywords"
+					content="iSync, SAP Business One, app móvil ERP, integración SAP, gestión de ventas, inventarios en tiempo real, fuerza de ventas"
+				/>
+
+				<link
+					rel="canonical"
+					href="https://isynchn.com/beneficios"
+				/>
+
+				{/* Open Graph */}
+				<meta property="og:title" content="Beneficios de iSync" />
+				<meta
+					property="og:description"
+					content="Optimiza ventas, inventarios y clientes con iSync, la app móvil integrada con SAP Business One y ERP."
+				/>
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://isynchn.com/beneficios" />
+				<meta property="og:image" content="https://isynchn.com/og-beneficios.png" />
+
+				{/* Twitter */}
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:title" content="Beneficios de iSync" />
+				<meta
+					name="twitter:description"
+					content="Conoce cómo iSync mejora la gestión empresarial con integración ERP."
+				/>
+				<meta name="twitter:image" content="https://isynchn.com/og-beneficios.png" />
 			</Head>
 
 			<section className="bg-white p-8 mt-18">
@@ -106,7 +138,7 @@ export default function Beneficios() {
 					Beneficios de Nuestra Aplicación
 				</h1>
 
-			
+
 
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					{beneficios.map((beneficio, index) => (

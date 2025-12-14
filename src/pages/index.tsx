@@ -18,6 +18,7 @@ export default function Home() {
         <meta name="theme-color" content="#1976d2" />
         <meta name="keywords" content="ERP, Honduras, iSync, facturación, pedidos, cobros, ventas, móvil, impresión térmica, dashboard" />
         <meta name="author" content="iSync" />
+        <link rel="canonical" href="https://isynchn.com" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
