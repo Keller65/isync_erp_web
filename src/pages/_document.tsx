@@ -8,6 +8,7 @@ export default function Document() {
     <Html lang="en">
       <Script
         id="google-analytics-script"
+        async
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -19,6 +20,7 @@ export default function Document() {
       />
       {/* <!-- Meta Pixel Code --> */}
       <script
+        async
         dangerouslySetInnerHTML={{
           __html: `!function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?

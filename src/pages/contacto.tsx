@@ -244,16 +244,23 @@ export default function ContactPage() {
   );
 }
 
-function Input({ label, error, children }: any) {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+  error?: string;
+  children: React.ReactElement;
+}
+
+function Input({ label, error, children }: InputProps) {
+  const typedChildren = children as React.ReactElement<React.InputHTMLAttributes<HTMLInputElement>>;
+  const childClassName = typedChildren.props.className || '';
   return (
     <div>
       <label className="block text-sm font-medium text-gray-600 mb-1">
         {label}
       </label>
       <div className="rounded-xl border border-gray-300 bg-gray-50 focus-within:bg-white focus-within:border-gray-900 transition">
-        {React.cloneElement(children, {
-          className:
-            'w-full bg-transparent px-4 py-3 text-sm outline-none',
+        {React.cloneElement(typedChildren, {
+          className: `w-full bg-transparent px-4 py-3 text-sm outline-none ${childClassName}`.trim(),
         })}
       </div>
       {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
@@ -261,7 +268,12 @@ function Input({ label, error, children }: any) {
   );
 }
 
-function Select({ label, children, ...props }: any) {
+interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+  label: string;
+  children: React.ReactNode;
+}
+
+function Select({ label, children, ...props }: SelectProps) {
   return (
     <div>
       <label className="block text-sm font-medium text-gray-600 mb-1">
@@ -277,15 +289,22 @@ function Select({ label, children, ...props }: any) {
   );
 }
 
-function Textarea({ label, error, children }: any) {
+interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  label: string;
+  error?: string;
+  children: React.ReactElement;
+}
+
+function Textarea({ label, error, children }: TextareaProps) {
+  const typedChildren = children as React.ReactElement<React.TextareaHTMLAttributes<HTMLTextAreaElement>>;
+  const childClassName = typedChildren.props.className || '';
   return (
     <div>
       <label className="block text-sm font-medium text-gray-600 mb-1">
         {label}
       </label>
-      {React.cloneElement(children, {
-        className:
-          'w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm outline-none focus:bg-white focus:border-gray-900 transition',
+      {React.cloneElement(typedChildren, {
+        className: `w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm outline-none focus:bg-white focus:border-gray-900 transition ${childClassName}`.trim(),
       })}
       {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
     </div>
