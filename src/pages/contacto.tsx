@@ -195,28 +195,12 @@ export default function ContactPage() {
                 <option value="CONTPAQI">CONTPAQi</option>
               </Select>
 
-              <Select
-                label="Dispositivos ilimitados"
-                {...register('devices', { setValueAs: v => v === 'true' })}
+              <Input
+                label="Cantidad de Empleados"
+                error={errors.licenses?.message}
               >
-                <option value="true">Sí</option>
-                <option value="false">No</option>
-              </Select>
-
-              {!devices && (
-                <Input
-                  label="Cantidad de licencias"
-                  error={errors.licenses?.message}
-                >
-                  <input type="number" {...register('licenses', { valueAsNumber: true })} />
-                </Input>
-              )}
-
-              <Select label="Tipo de contratación" {...register('contractType')}>
-                <option value="Mensual">Mensual</option>
-                <option value="Anual">Anual</option>
-                <option value="Permanente">Permanente</option>
-              </Select>
+                <input type="number" {...register('licenses', { valueAsNumber: true })} />
+              </Input>
 
               <Textarea label="Mensaje" error={errors.message?.message}>
                 <textarea rows={4} {...register('message')} />
