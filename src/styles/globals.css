@@ -155,3 +155,11 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes flow-line {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+.animate-flow-line {
+  animation: flow-line 3s infinite linear;
+}
