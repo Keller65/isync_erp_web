@@ -133,7 +133,32 @@ export default function Beneficios() {
 				<meta name="twitter:image" content="https://isynchn.com/og-beneficios.png" />
 			</Head>
 
-			<section className="bg-white p-8 mt-18">
+			<section className="bg-white p-8 mt-14">
+
+				{/* <div className="my-12 max-w-3xl mx-auto rounded-3xl h-[400px] bg-white overflow-hidden grid place-content-center">
+					<video
+						src="https://pub-faf12f6f8bc0463ca7cbe2ceb0bb13eb.r2.dev/Anuncio%20captacion%20de%20Leads.mp4"
+						loop
+						autoPlay
+						controls
+						className="h-[800px] mt-16"
+					>
+						Your browser does not support the video tag.
+					</video>
+				</div> */}
+
+				<div className="mx-auto mb-10 w-[350px] rounded-3xl bg-white overflow-hidden grid place-content-center">
+					<video
+						src="https://pub-faf12f6f8bc0463ca7cbe2ceb0bb13eb.r2.dev/Anuncio%20iSync.mp4"
+						loop
+						autoPlay
+						controls={false}
+						className="h-full"
+					>
+						Your browser does not support the video tag.
+					</video>
+				</div>
+
 				<h1 className="text-3xl font-bold text-center text-gray-800 mb-12">
 					Beneficios de Nuestra Aplicación
 				</h1>

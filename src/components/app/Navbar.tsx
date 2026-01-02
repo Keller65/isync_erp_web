@@ -18,6 +18,7 @@ function Navbar() {
     { href: "/", label: "Inicio" },
     { href: "/beneficios", label: "Beneficios" },
     { href: "/contacto", label: "Contacto" },
+    { href: "/terminos-y-condiciones", label: "Términos" },
   ]
 
   return (
