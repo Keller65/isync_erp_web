@@ -32,7 +32,6 @@ export default function ContactPage() {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<ContactFormData>({
@@ -43,8 +42,6 @@ export default function ContactPage() {
       contractType: 'Mensual',
     },
   });
-
-  const devices = watch('devices');
 
   const onSubmit = async (data: ContactFormData) => {
     await addDoc(collection(db, 'contacts'), {

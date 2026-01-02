@@ -67,7 +67,7 @@ function TerminosYCondiciones() {
             <div>
               <h2 className="text-base font-medium">Acuerdo de Licencia de Usuario Final (EULA)</h2>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-                Este Acuerdo de Licencia de Usuario Final ("EULA") es un acuerdo legal entre usted (ya sea un individuo o una entidad) y iSync con respecto al software iSync que lo acompaña o que usted ha descargado.
+                Este Acuerdo de Licencia de Usuario Final (&quot;EULA&quot;) es un acuerdo legal entre usted (ya sea un individuo o una entidad) y iSync con respecto al software iSync que lo acompaña o que usted ha descargado.
                 Al instalar, copiar o usar el software iSync, usted acepta estar sujeto a los términos de este EULA.
                 Si no está de acuerdo con los términos de este EULA, no instale, copie ni use el software.
               </p>
@@ -97,7 +97,7 @@ function TerminosYCondiciones() {
               <h3 className="text-base font-medium mt-4">5. Sin Garantía</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
                 Usted reconoce y acepta expresamente que el uso del software es bajo su propio riesgo y que todo el riesgo en cuanto a la calidad, el rendimiento, la precisión y el esfuerzo satisfactorios recae en usted.
-                En la medida máxima permitida por la ley aplicable, el software y los servicios se proporcionan "tal cual" y "según disponibilidad", con todos los defectos y sin garantía de ningún tipo.
+                En la medida máxima permitida por la ley aplicable, el software y los servicios se proporcionan &quot;tal cual&quot; y &quot;según disponibilidad&quot;, con todos los defectos y sin garantía de ningún tipo.
               </p>
             </div>
 
