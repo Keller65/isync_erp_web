@@ -38,6 +38,7 @@ export default function Document() {
         src="https://www.facebook.com/tr?id=1391605178977412&ev=PageView&noscript=1"
       /></noscript>
       {/* <!-- End Meta Pixel Code --> */}
+      <meta name="facebook-domain-verification" content="9i05jffzzsvsq9uvczbpvu2hza4wpm" />
       <Head />
       <body className="antialiased">
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFMWQD3T"
